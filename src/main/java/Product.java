@@ -11,6 +11,14 @@ public class Product {
         this.coast = coast;
     }
 
+    public boolean matches(Product product, String search) {
+        if (product.getName().contains(search)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public String getName() {
         return name;
     }
