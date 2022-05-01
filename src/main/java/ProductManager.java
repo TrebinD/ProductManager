@@ -1,5 +1,3 @@
-import javax.print.attribute.standard.PresentationDirection;
-
 public class ProductManager {
     public ProductRepositori repository;
 
@@ -15,6 +13,7 @@ public class ProductManager {
     public void delete(int id) {
         repository.deleteProduct(id);
     }
+
 
     public Product[] searchBy(String text) {
         Product[] result = new Product[0];

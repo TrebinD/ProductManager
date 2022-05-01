@@ -18,22 +18,24 @@ public class ProductRepositori {
     }
 
     public Product[] deleteProduct(int id) {
-        int length = products.length - 1;
-        Product[] tmp = new Product[length];
-        int index = 0;
-        for (Product product : products) {
-            if (product.id != id) {
-                tmp[index] = product;
-                index++;
+        if (products.length == 0) {
+            return products;
+        } else {
+            int length = products.length - 1;
+            Product[] tmp = new Product[length];
+            int index = 0;
+            for (Product product : products) {
+                if (product.id != id) {
+                    tmp[index] = product;
+                    index++;
+                }
             }
+            Product[] tmp2 = new Product[index];
+            for (int i = 0; i < index; i++) {
+                tmp2[i] = tmp[i];
+            }
+            products = tmp2;
+            return products;
         }
-        Product[] tmp2 = new Product[index];
-        for (int i = 0; i < index; i++) {
-            tmp2[i] = tmp[i];
-        }
-        products = tmp2;
-        return products;
     }
-
-
 }

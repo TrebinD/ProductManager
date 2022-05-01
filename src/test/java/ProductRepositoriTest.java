@@ -23,7 +23,7 @@ class ProductRepositoriTest {
         manager.add(smartphone3);
 
 
-        Product[] actual = new Product[]{book1,book2,book3,smartphone1, smartphone2, smartphone3,};
+        Product[] actual = new Product[]{book1, book2, book3, smartphone1, smartphone2, smartphone3,};
         Product[] excpeted = productRepositori.findAll();
 
         assertArrayEquals(actual, excpeted);
@@ -42,7 +42,7 @@ class ProductRepositoriTest {
 
         manager.delete(3);
 
-        Product[] actual = new Product[]{book1,book3,smartphone1, smartphone2, smartphone3,};
+        Product[] actual = new Product[]{book1, book3, smartphone1, smartphone2, smartphone3,};
         Product[] excpeted = productRepositori.findAll();
 
         assertArrayEquals(actual, excpeted);
@@ -116,6 +116,16 @@ class ProductRepositoriTest {
         assertArrayEquals(actual, excpeted);
     }
 
+    @Test
+    public void deleteProductNullMassiv() {
+
+        ProductManager manager = new ProductManager(productRepositori);
+        manager.delete(1);
+        Product[] actual = new Product[]{};
+        Product[] excpeted = productRepositori.findAll();
+
+        assertArrayEquals(actual, excpeted);
+    }
 
 
 }
